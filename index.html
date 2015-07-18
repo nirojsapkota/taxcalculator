@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tax calculator (2071-2072 B.S.)</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Niroj</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<body>
+  <div class="container">
+
+    <h3 class="text-center">Tax calculator 2071/72 B.S.</h3>
+
+<div class="middle-content">
+<form class="form-horizontal" id="tax-form" action="" method="post">
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <input type="text" class="form-control" id="salary_per_month" placeholder="Monthly Salary">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <div class="checkbox">
+        <label for"married">
+          <input type="checkbox" id="is_married" name="married">Check if Married
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="checkbox">
+        <label for="yearly_bonus">
+          <input type="checkbox" id="yearly_bonus" name="yearly_bonus">Yearly Bonus?
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <div class="checkbox">
+        <label for="cit_deposit">
+          <input type="checkbox" id="cit_deposit" name="cit_deposit"> Check if CIT deposited
+        </label>
+      </div>
+    </div>
+
+    <div class="col-sm-3" id="cit-div" style="display:none;">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="cit_amount_monthly" placeholder="Monthly cit deposit">
+    </div>
+    </div>
+
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <div class="checkbox">
+        <label for"insurance_deposit">
+          <input type="checkbox" id="insurance_deposit" name="insurance_deposit">Check if Insured
+        </label>
+      </div>
+    </div>
+
+    <div class="col-sm-3" id="insurance-div" style="display:none;">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="insurance_amount" placeholder="Yearly premium Amount">
+    </div>
+  </div>
+
+  </div>
+
+  
+
+
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <button type="submit" id="calculate_tax" class="btn btn-success">Calculate tax</button>
+    </div>
+  </div>
+</form>
+</div>
+
+
+<table class="table table-bordered table-striped" id="info-table" style="display:none;">
+  <thead>
+    <tr>
+      <td>
+        Yearly Salary
+      </td>
+
+      <td>
+        Cit Deposit(Yearly)
+      </td>
+      <td>
+        Insurance Deposit(monthly)
+      </td>
+      <td>
+        Total Taxable amount(yearly)
+      </td>
+
+
+      <td>
+        First slab tax (1%)
+      </td>
+
+
+      <td>
+        Second slab tax (15%)
+      </td>
+
+      <td>
+        Third slab tax (25%)
+      </td>
+      <td>
+        Total tax 
+      </td>
+
+       <td>
+        Tax per month
+      </td>
+
+    </tr>
+  </thead>
+  <tbody id="tax-row">
+  </tbody>
+</table>
+
+
+<script id="tax-template" type="text/x-handlebars-template">
+<tr>
+<td>{{yearly_salary}}</td>
+<td>{{cit_deposit}}</td>
+<td>{{insurance_deposit}}</td>
+<td>{{total_taxable}}</td>
+<td>{{first_slab}}</td>
+<td>{{second_slab}}</td>
+<td>{{third_slab}}</td>
+<td>{{total_tax}}</td>
+<td>{{tax_per_month}}</td>
+</tr>
+</script>
+
+
+  </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap.js"></script>
+
+    <script src="taxCalcuate.min.js"></script>
+    <script src="handlebars-v2.0.0.js"></script>
+  </body>
+</html>
