@@ -1,7 +1,7 @@
-# taxcalculator
-simple regional tax calculator done in html/javascript
+# Taxcalculator
+Simple regional tax calculator done in html/javascript
 
 #Libraries used
--Javascript
--Jquery
--Handlebar.js (for templating)
+- Javascript
+- Jquery
+- Handlebar.js (for templating)
